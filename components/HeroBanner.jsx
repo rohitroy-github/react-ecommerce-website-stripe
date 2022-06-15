@@ -1,9 +1,11 @@
-import React from 'react'
-import Link from 'next/link'
+import React from 'react'; 
 
-import { urlFor } from '../lib/client'
+import Link from 'next/link'; //Using <Link> tags 
 
-const HeroBanner = ({heroBanner}) => {
+import { urlFor } from '../lib/client'; //Generating product URL's 
+
+//Passing the fetched data from Sanity as a prop to HeroBanner function
+const HeroBanner = ({ heroBanner }) => {
   return (
     <div className='hero-banner-container'> 
       <p className="beats-solo"> 
@@ -13,6 +15,7 @@ const HeroBanner = ({heroBanner}) => {
       <h1>{heroBanner.largeText1}</h1>
       <img src={urlFor(heroBanner.image)} alt='headphones' className='hero-banner-image' />
       <div> 
+        {/* <Link /> tags in Next.js are exactly sumilar to the <a/> tags in React.js */}
         <Link href={'/product/${herobanner.product}'}>  
         <button type='button'>{heroBanner.buttonText}</button>
         </Link>
@@ -27,4 +30,4 @@ const HeroBanner = ({heroBanner}) => {
   )
 }
 
-export default HeroBanner
+export default HeroBanner;
