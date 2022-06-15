@@ -16,7 +16,7 @@ const HeroBanner = ({ heroBanner }) => {
       <img src={urlFor(heroBanner.image)} alt='headphones' className='hero-banner-image' />
       <div> 
         {/* <Link /> tags in Next.js are exactly sumilar to the <a/> tags in React.js */}
-        <Link href={'/product/${herobanner.product}'}>  
+        <Link href={`/product/${heroBanner.product}`}>  
         <button type='button'>{heroBanner.buttonText}</button>
         </Link>
         <div className="desc"> 
