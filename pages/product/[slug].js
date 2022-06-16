@@ -6,29 +6,29 @@ import React from "react";
 import { client, urlFor } from "../../lib/client";
 
 const ProductDetails = (product, products) => {
-    const { image, name, details, price } = products; 
-
+    const { image, name, details, price } = product; 
   return (
-    <div>
-      <div className="product-detail-container">
-        <div>
-          <div className="image-container">
+    <div> 
+      <div className="product-detail-container"> 
+        <div> 
+          <div className="image-container"> 
             <img src={urlFor(image && image[0])} />
           </div>
-          <div className="small-images-container"> 
-            {image?map((item, i) => ( 
-                <img 
-                src="{urlFor(item)}"
-                className=""
-                onMouseEnter=""
-                />
-            ))
-          </div>}
+          {/* Image Carousel Code */}
+          <div className="small-images-conatiner">
+            {image?.map((item, i) => ( 
+              <img 
+              src={urlFor(item)}
+              className=""
+              onMouseEnter=""
+              />
+            ))}
+          </div> 
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export const getStaticPaths = async () => {
     const query = `*[_type == "product"] {
@@ -52,13 +52,15 @@ export const getStaticPaths = async () => {
     }
   }
 
+// getStaticProps function is used when the data required to render the page is available at runtime ahead of user request
+
 export const getStaticProps = async ({ params: { slug } }) => {
   //To fetch product details from thne product page we are on currently
-  const query = `*_type == "product" && slug.current == '${slug}'][0]`;
-  const productQuery = `1*[_type == "product"]`;
+  const query = `*_type == "product" && slug.current == '${slug}'][0]`; //Fetching a particular product requested
+  const productQuery = `*[_type == "product"]`; //Fetching similar products
 
-  const product = await client.fetch(query); //Fetching particualr product requested
-  const products = await client.fetch(productQuery); //Fetching similar products
+  const product = await client.fetch(query); 
+  const products = await client.fetch(productQuery); 
 
   return {
     props: { product, products },
