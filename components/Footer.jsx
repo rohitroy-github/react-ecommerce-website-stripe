@@ -1,6 +1,6 @@
 import React from 'react'; 
 
-import { AiFillInstagram, AiOutlineTwitter } from 'react-icons/ai'; ..I
+import { AiFillInstagram, AiOutlineTwitter } from 'react-icons/ai'; //Importing 'Instagram" & "Twitter" icons
 
 const Footer = () => {
   return (
