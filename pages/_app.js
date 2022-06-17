@@ -10,6 +10,7 @@ import { Toaster } from 'react-hot-toast'; //Adding pop-up
 
 function MyApp({ Component, pageProps }) {
   return ( 
+    //Using <StateContext /> as a wrapper here makes it available across the entire application
     <StateContext> 
     <Layout> 
       <Toaster />

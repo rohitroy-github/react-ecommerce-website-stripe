@@ -1,19 +1,20 @@
+//Contains all the logic for the cart itemss 
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-import { toast } from 'react-hot-toast';
+import { toast } from 'react-hot-toast'; //For making the pop-up notification 
 
-const Context = createContext(); 
+const Context = createContext(); //Hook
 
 export const StateContext = ({ children }) => { 
-    const [showCart, setShowCart] = useState(false); 
+    const [showCart, setShowCart] = useState(false); //'false' shows the initail property for the state 
 
-    const [cartItems, setCartItems] = useState(); 
-    const [total, settotal] = useState(); 
+    const [cartItems, setCartItems] = useState(); //Cart items using 'Local Storage'
 
-    const [totalPrice, setTotalPrice] = useState(); 
+    const [totalPrice, setTotalPrice] = useState(); //Total price of the cart
 
-    const [totalQuantities, setTotalQuantities] = useState(); 
-    const [qty, setQty] = useState(1); 
+    const [totalQuantities, setTotalQuantities] = useState(); //Total quantity of the cart
+
+    const [qty, setQty] = useState(1); //Quantity
 
     //Logic for increasing cart item + 
     const increaseQuantity = () => { 
@@ -29,8 +30,10 @@ export const StateContext = ({ children }) => {
     }
 
     return( 
+        //Returning Context Provider
         <Context.Provider 
         vlaue={{ 
+            //Passing values across entire application
             showCart, 
             cartItems, 
             totalPrice, 
