@@ -16,6 +16,42 @@ export const StateContext = ({ children }) => {
 
   const [qty, setQty] = useState(1); //Quantity
 
+  //Function to AddToCart
+  const onAdd = (product, quantity) => {
+    const checkProductInCart = cartItems.find(
+      (item) => item._id === product._id
+    );
+
+    setTotalPrice(
+      (prevTotalPrice) => prevTotalPrice + product.price * quantity
+    );
+    setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
+
+    if (checkProductInCart) {
+      //Checking if the item we are currently trying to add to cart is already in cart or not ?
+      //Yes
+      //Updating actual items in cart
+      const updatedCartItems = cartItems.map((cartProduct) => {
+        if (cartProduct._id === product._id)
+          return {
+            ...cartProduct,
+            //Incrementing the quantity of that particular product
+            quantity: cartProduct.quantity + quantity,
+          };
+      });
+
+      setCartItems(updatedCartItems);
+    } else {
+      //No
+      //If the product we are trying to add is not already present in the cart
+      product.quantity = quantity;
+
+      setCartItems([...cartItems, { ...product }]);
+    }
+    //Showing the pop-up notification
+    toast.success(`${qty} ${product.name} added to the cart.`);
+  };
+
   //Function - Logic for increasing cart item +
   const incQty = () => {
     setQty((prevQty) => prevQty + 1);
