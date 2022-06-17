@@ -28,6 +28,7 @@ const Cart = () => {
           <span className="cart-num-items">({totalQuantities} items)</span>
         </button>
 
+        {/* Checking if cart is empty ?  */}
         {cartItems.length < 1 && (
           <div className="empty-cart">
             <AiOutlineShopping size={150} />
@@ -43,8 +44,9 @@ const Cart = () => {
             </Link>
           </div>
         )}
-
-        {/* <div className="product-container">
+        
+        {/* If cart is not empty */}
+        <div className="product-container">
           {cartItems.length >= 1 && cartItems.map((item) => (
             <div className="product" key={item._id}>
               <img src={urlFor(item?.image[0])} className="cart-product-image" />
@@ -75,6 +77,7 @@ const Cart = () => {
             </div>
           ))}
         </div>
+        {/* Subtotal calculation */}
         {cartItems.length >= 1 && (
           <div className="cart-bottom">
             <div className="total">
@@ -87,7 +90,7 @@ const Cart = () => {
               </button>
             </div>
           </div>
-        )} */}
+        )}
       </div>
     </div>
   )

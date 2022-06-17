@@ -10,7 +10,7 @@ export const StateContext = ({ children }) => {
 
   const [cartItems, setCartItems] = useState([]); //Cart items using 'Local Storage'
 
-  const [totalPrice, setTotalPrice] = useState(); //Total price of the cart
+  const [totalPrice, setTotalPrice] = useState(0); //Total price of the cart
 
   const [totalQuantities, setTotalQuantities] = useState(0); //Total quantity of the cart
 
