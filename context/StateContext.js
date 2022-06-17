@@ -8,7 +8,7 @@ const Context = createContext(); //Hook
 export const StateContext = ({ children }) => {
   const [showCart, setShowCart] = useState(false); //'false' shows the initail property for the state
 
-  const [cartItems, setCartItems] = useState(); //Cart items using 'Local Storage'
+  const [cartItems, setCartItems] = useState([]); //Cart items using 'Local Storage'
 
   const [totalPrice, setTotalPrice] = useState(); //Total price of the cart
 
@@ -73,6 +73,7 @@ export const StateContext = ({ children }) => {
         qty,
         incQty,
         decQty,
+        onAdd,
       }}
     >
       {children}
