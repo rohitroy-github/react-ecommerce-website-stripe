@@ -20,9 +20,9 @@ import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({ product, products}) => {
 
-  const { image, name, details, price } = product;
-  const { increaseQuantity, decreaseQuantity, qty } = useStateContext; 
-  const [index, setIndex] = useState(0);
+const { image, name, details, price } = product;
+const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
+const [index, setIndex] = useState(0);
   return (
     <div>
       <div className="product-detail-container">
@@ -64,13 +64,12 @@ const ProductDetails = ({ product, products}) => {
           <div className="quantity">
             <h3>Quantity:</h3>
             <p className="quantity-desc">
-              <span className="minus" onClick={decreaseQuantity}>
-                <AiOutlineMinus />
-              </span>
+              {/* Minus button */}
+            <span className="minus" onClick={decQty}><AiOutlineMinus /></span> 
+            {/* Quantity display */}
               <span className="num">{qty}</span>
-              <span className="plus" onClick={increaseQuantity}>
-                <AiOutlinePlus />
-              </span>
+              {/* Plus button */}
+              <span className="plus" onClick={incQty}><AiOutlinePlus /></span>
             </p>
           </div>
           <div className="buttons">
@@ -83,7 +82,8 @@ const ProductDetails = ({ product, products}) => {
           </div>
         </div>
       </div>
-
+      
+      {/* Product banner for similar items to the selected items */}
       <div className="maylike-products-wrapper">
         <h2>You may also like</h2>
         <div className="marquee">
