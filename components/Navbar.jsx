@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <div className="navbar-container">
       <p className="logo">
-        <Link href="/">JSM Headphones</Link>
+        <Link href="/">Headphone Galaxy</Link>
       </p>
 
       <button type="button" className="cart-icon" onClick={() => setShowCart(true)}>
@@ -19,6 +19,7 @@ const Navbar = () => {
         <span className="cart-item-qty">{totalQuantities}</span>
       </button>
 
+      {/* Only show the Cart when setShowCart is true  */}
       {showCart && <Cart />}
     </div>
   )
