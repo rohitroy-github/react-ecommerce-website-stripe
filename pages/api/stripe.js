@@ -13,7 +13,10 @@ export default async function handler(req, res) {
         mode: "payment", //Mode = payment
         payment_method_types: ["card"],
         billing_address_collection: "auto",
-        shipping_options: [{ shipping_rate: "shr_1LC3NfSCw2fpMkHGwQR5ryDk" }],
+        //USD Free Shipping
+        // shipping_options: [{ shipping_rate: "shr_1LC3NfSCw2fpMkHGwQR5ryDk" }],
+        //INR Free shipping
+        shipping_options: [{ shipping_rate: "shr_1LCIT9SCw2fpMkHGQlJ86ylY" }],
         line_items: req.body.map((item) => {
           const img = item.image[0].asset._ref;
           const newImage = img
@@ -25,7 +28,7 @@ export default async function handler(req, res) {
 
           return {
             price_data: {
-              currency: "usd",
+              currency: "INR",
               product_data: {
                 name: item.name,
                 images: [newImage],
