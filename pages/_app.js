@@ -19,5 +19,4 @@ function MyApp({ Component, pageProps }) {
     </StateContext>
   )
 }
-
 export default MyApp
