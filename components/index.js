@@ -1,3 +1,4 @@
+// Export files for using all over the project 
 export { default as Footer } from './Footer'; 
 
 export { default as Navbar } from './Navbar'; 
