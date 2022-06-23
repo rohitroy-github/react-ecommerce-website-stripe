@@ -10,4 +10,4 @@ These are some sample shots for the hosted site.
 
 ![p4](https://user-images.githubusercontent.com/68563695/174877934-6979dc55-a8ae-4344-a3f4-e627c410f188.PNG)
 
-![p5](https://user-images.githubusercontent.com/68563695/174877944-9e4ea6e6-58dc-45bc-b6ec-f2b2e743e88e.png)
+![p5 - Copy](https://user-images.githubusercontent.com/68563695/175359319-49d57a22-d668-492e-b832-3405fdad20ca.png)
